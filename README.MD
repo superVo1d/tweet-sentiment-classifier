@@ -45,6 +45,6 @@ curl -X POST "http://localhost:8000/predict" \
 
 ```
 {
-    "sentiment": 1
+    "sentiment": "Positive"
 }
 ```

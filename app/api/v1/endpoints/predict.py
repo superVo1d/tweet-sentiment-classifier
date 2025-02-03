@@ -15,8 +15,8 @@ def predict_sentiment(request: SentimentRequest):
     sentiment = sentiment_service.predict_sentiment(request.text)
     
     sentiment_dict = {
-        0: "Positive",
-        1: "Ngative",
+        0: "Negative",
+        1: "Positive",
     }
     
     return {"sentiment": sentiment_dict[sentiment]}
