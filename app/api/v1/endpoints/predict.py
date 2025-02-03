@@ -10,7 +10,13 @@ sentiment_service = SentimentService()
 class SentimentRequest(BaseModel):
     text: str
 
-@router.post("/predict")
+@router.post("")
 def predict_sentiment(request: SentimentRequest):
     sentiment = sentiment_service.predict_sentiment(request.text)
-    return {"sentiment": sentiment}
+    
+    sentiment_dict = {
+        0: "Positive",
+        1: "Ngative",
+    }
+    
+    return {"sentiment": sentiment_dict[sentiment]}

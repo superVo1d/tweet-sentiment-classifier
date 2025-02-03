@@ -36,7 +36,7 @@ docker-compose up --build -d
 Пример запроса к сервису:
 
 ```
-curl -X POST "http://localhost:8000/sentiment/predict" \
+curl -X POST "http://localhost:8000/predict" \
      -H "Content-Type: application/json" \
      -d '{"text": "This is an amazing product!"}'
 ```

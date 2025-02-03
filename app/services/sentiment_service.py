@@ -3,7 +3,7 @@ from typing import Union
 import torch
 from transformers import BertForSequenceClassification, BertTokenizer
 
-MODEL_DIR = "data"
+MODEL_DIR = "./models"
 
 class SentimentService:
     def __init__(self):
@@ -19,7 +19,7 @@ class SentimentService:
         print("✅ Sentiment Model loaded successfully!")
 
     # Предсказываем тональнось текста
-    def predict_sentiment(self, text: str) -> Union[0, 1]:
+    def predict_sentiment(self, text: str) -> Union[int, int]:
         # Токенизируем входной текст
         inputs = self.tokenizer(text, truncation=True, padding=True, max_length=128, return_tensors="pt")
 
