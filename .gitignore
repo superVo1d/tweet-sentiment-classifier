@@ -1,0 +1,10 @@
+.vscode/
+__pycache__/
+*.pyc
+**/.ipynb_checkpoints
+**/.virtual_documents
+
+data/*
+.venv
+.env
+models/*
