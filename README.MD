@@ -1,5 +1,7 @@
 # Tweet Sentiment Classifier
 
+Проект представляет собой сервис на FastAPI, использующий модель BERT, дообученную на датасете Sentiment140 для анализа тональности твитов. Модель предсказывает настроение текста (позитивное, негативное) и определяет важность слов. Сервис разворачивается в Docker и предоставляет API для обработки текстов в реальном времени.
+
 ### Задача
 
 Создать классификатор твитов.
@@ -36,7 +38,7 @@ docker-compose up --build -d
 Пример запроса к сервису:
 
 ```
-curl -X POST "http://localhost:8000/predict" \
+curl -X POST "http://localhost:8000/api/v1/predict" \
      -H "Content-Type: application/json" \
      -d '{"text": "This is an amazing product!"}'
 ```
@@ -45,6 +47,7 @@ curl -X POST "http://localhost:8000/predict" \
 
 ```
 {
-    "sentiment": "Positive"
+    "sentiment": "Positive",
+    "importance": [["product",1.0],["amazing",0.92]]
 }
 ```
