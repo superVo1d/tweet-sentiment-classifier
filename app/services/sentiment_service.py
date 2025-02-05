@@ -74,6 +74,8 @@ class SentimentService:
 
         # Нормализация значений важности
         max_importance = max(word_importance.values()) if word_importance else 1.0
+        if max_importance == 0:
+            max_importance = 1.0
         word_importance = {token: round(score / max_importance, 2) for token, score in word_importance.items()}
 
         # Сортируем по важности
