@@ -14,9 +14,4 @@ class SentimentRequest(BaseModel):
 def predict_sentiment(request: SentimentRequest):
     sentiment = sentiment_service.predict_sentiment(request.text)
     
-    sentiment_dict = {
-        0: "Negative",
-        1: "Positive",
-    }
-    
-    return {"sentiment": sentiment_dict[sentiment]}
+    return sentiment
