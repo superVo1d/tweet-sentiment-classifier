@@ -3,17 +3,18 @@ from typing import Union
 
 import nltk
 import torch
-from transformers import BertForSequenceClassification, BertTokenizer
+from transformers import (DistilBertForSequenceClassification,
+                          DistilBertTokenizer)
 
 MODEL_DIR = "./models"
 
 class SentimentService:
     def __init__(self):
         # Загружаем модель
-        self.model = BertForSequenceClassification.from_pretrained(MODEL_DIR)
+        self.model = DistilBertForSequenceClassification.from_pretrained(MODEL_DIR)
 
         # Загружаем токенизатор
-        self.tokenizer = BertTokenizer.from_pretrained(MODEL_DIR)
+        self.tokenizer = DistilBertTokenizer.from_pretrained(MODEL_DIR)
 
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         self.model.to(self.device)
